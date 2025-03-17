@@ -9,6 +9,26 @@
   --primary-text: #333333;
   --link-color:#0077cc;
   --primary-font: 'Roboto', Arial, sans-serif;
+  --card-background: #ffffff;
+  --card-border: #e0e0e0;
+  --card-radius: 10px;
+  --card-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  --card-title-color: #333;
+  --card-text-color: #666;
+  --card-link-color: #0077cc;
+  --card-link-hover-color: #005fa3; 
+  --card-header-height: 100px;
+  --card-img-size: 70px;
+}
+
+#cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+project-card {
+  display: block;
 }
 
 [data-theme="dark"] {

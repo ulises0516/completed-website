@@ -1,15 +1,17 @@
 <!DOCTYPE html>
-<html class = "no-js" lang="en">
+<html class="no-js" lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Contact Form - JS Validation & Masking</title>
+  <title>Portfolio - Project Cards</title>
   <link rel="stylesheet" href="css/form-style.css">
   <link rel="stylesheet" href="css/website-style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <style>
+    /* Hide theme icon if JavaScript is disabled */
     .no-js #themeIcon {
       display: none;
     }
+        
   </style>
 </head>
 <body data-theme="light">
@@ -17,9 +19,10 @@
     <p><strong>JavaScript is disabled.</strong> Some features may not work properly. Please enable JavaScript for the best experience.</p>
   </noscript>
   
+  <!-- Header Section -->
   <header>
     <div class="header-container">
-        <h1>Ulises</h1>
+      <h1>Ulises</h1>
       <nav class="main-nav">
         <ul>
           <li><a href="#about-me">About Me</a></li>
@@ -29,7 +32,7 @@
         </ul>
       </nav>
       <button id="themeToggle" aria-label="Toggle Dark Mode">
-        <img id="themeIcon" src="images/moon-icon.svg" alt="Theme Toggle">
+        <img id="themeIcon" src="images/moon-icon.svg" alt="Toggle Theme">
       </button>
     </div>
   </header>
@@ -41,10 +44,11 @@
   </section>
 
   <main>
+    <!-- about me -->
     <section id="about-me">
       <h2>About Me</h2>
       <div class="two-column">
-        <!-- left Column -->
+        <!-- left column -->
         <article>
           <h3>BIO</h3>
           <p>My current goals are to become a better programmer and reach 1000 LeetCode problems solved by the end of this year.</p>
@@ -53,66 +57,33 @@
           <p>My favorite foods are spaghetti, avocados, and steak. I also love In-N-Out and milkshakes.</p>
           <p>Basketball is my favorite sport to watch—and I play it during my free time.</p>
         </article>
-
         <!-- right column - image -->
         <aside>
           <figure>
             <picture>
               <source srcset="images/profilepic.webp" type="image/webp">
               <source srcset="images/profilepic.jpg" type="image/jpeg">
-              <img src="images/profilepic.jpg" alt="protrait of ulises (me)" class="responsive-img">
+              <img src="images/profilepic.jpg" alt="Portrait of Ulises" class="responsive-img">
             </picture>
-            <figcaption> <em>picture of me!</em></figcaption>
+            <figcaption><em>Picture of me!</em></figcaption>
           </figure>
         </aside>
       </div>
     </section>
 
-
+    <!-- Resume Section -->
     <section id="resume">
       <h2>Resume</h2>
       <div class="responsive-pdf">
-        <iframe 
-          src="pdf/resume.pdf#zoom=page-width"
-          title="Ulises's Resume" 
-          allowfullscreen>
-        </iframe>
+        <iframe src="pdf/resume.pdf#zoom=page-width" title="Ulises's Resume" allowfullscreen></iframe>
       </div>
     </section>
 
+    <!-- project section -->
     <section id="portfolio">
       <h2>Portfolio/Projects</h2>
-      <div class="two-column">
-        <!-- left column  -->
-        <article>
-          <h3>WebClicker++<cite> 
-            <a href="https://github.com/CSES-Dev/webclicker-plusplus" target="_blank" rel="noopener">
-              <picture>
-                <source srcset="images/github-icon.webp" type="image/webp">
-                <source srcset="images/github-icon.jpg" type="image/jpeg">
-                <img src="images/github-icon.jpg" alt="View Project on GitHub" >
-              </picture>
-            </a>
-          </cite> 
-        </h3>
-          <p>Developing a web-based iClicker replacement with a Q&A interface and professor tools. </p>
-          <p>Implemented authentication using Next.js OAuth with Prisma for user management and protected pages using middleware to ensure secure access control</p>
-          <blockquote>
-            <p>Innovating attendance</p>
-          </blockquote>
-        </article>
-    
-        <!-- right column -img -->
-        <aside>
-          <figure>
-            <picture>
-              <source srcset="images/webclicker.webp" type="image/webp">
-              <source srcset="images/webclicker.jpg" type="image/jpeg">
-              <img src="images/webclicker.jpg" alt="Image of Project" class="responsive-img">
-            </picture>
-          </figure>
-        </aside>
-      </div>
+
+      <div id="cards-container"></div>
     </section>
   </main>
 
@@ -141,90 +112,51 @@
             <img src="images/email-icon.svg" alt="Email">
           </picture>
         </a>
-        <!-- <button id="openModalBtn" class="contact-button">Contact Me</button> -->
-
       </address>
-
-
       <div id="contactModalContainer">
         <form id="contactForm" action="https://httpbin.org/post" method="post" novalidate>
           <input type="hidden" id="form-errors" name="form-errors" value="[]" />
-      
           <h2>Contact Me</h2>
-      
           <label for="name" class="required">Name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            required
-            pattern="^[A-Za-z\s'\-]+$"
-            placeholder="Your Name"
-            title="Name can only contain letters, spaces, apostrophes, or hyphens."
-          >
-      
+          <input type="text" id="name" name="name" required pattern="^[A-Za-z\s'\-]+$" placeholder="Your Name" title="Name can only contain letters, spaces, apostrophes, or hyphens.">
           <label for="email" class="required">Email</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            required
-            placeholder="john@domain.com"
-            title="Please enter a valid email address."
-          >
-      
+          <input type="email" id="email" name="email" required placeholder="john@domain.com" title="Please enter a valid email address.">
           <label for="comments" class="required">Comments</label>
           <div class="textarea-container">
-            <textarea
-              id="comments"
-              name="comments"
-              required
-              minlength="20"
-              maxlength="500"
-              placeholder="message..."
-            ></textarea>
+            <textarea id="comments" name="comments" required minlength="20" maxlength="500" placeholder="message..."></textarea>
             <div id="charCount" class="char-counter">Characters remaining: 500</div>
           </div>
-      
           <div id="errorOutput" class="error-output" aria-live="polite"></div>
-      
           <input type="hidden" name="possible_bot" value="true">
-      
           <div class="form-buttons">
             <button type="submit" id="submitBtn" class="submit-modal-btn">Submit</button>
           </div>
         </form>
-      </div>      
-
+      </div>
     </section>
     <p>&copy; 2024 Ulises Blog</p>
-  </footer>  
+  </footer>
 
   <script>
     document.documentElement.classList.remove('no-js');
     document.documentElement.classList.add('js');
 
-    // theme switcher
+    // Theme toggle functionality
     document.addEventListener('DOMContentLoaded', () => {
       const themeToggle = document.getElementById('themeToggle');
       const themeIcon = document.getElementById('themeIcon');
-
       const storedTheme = localStorage.getItem('theme') || 'light';
       document.documentElement.setAttribute('data-theme', storedTheme);
-
       themeIcon.src = storedTheme === 'dark' ? "images/sun-icon.webp" : "images/moon-icon.svg";
       themeToggle.setAttribute("aria-label", storedTheme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode");
-
       themeToggle.addEventListener('click', () => {
         const newTheme = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
         document.documentElement.setAttribute("data-theme", newTheme);
         localStorage.setItem("theme", newTheme);
-
         themeIcon.src = newTheme === "dark" ? "images/sun-icon.webp" : "images/moon-icon.svg";
         themeToggle.setAttribute("aria-label", newTheme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode");
       });
     });
-
     document.addEventListener('DOMContentLoaded', () => {
       let form_errors = [];
       const form             = document.getElementById('contactForm');
@@ -400,6 +332,124 @@
         formErrField.value = JSON.stringify(form_errors);
       });
     });
+  </script>
+
+  <script>
+    class ProjectCard extends HTMLElement {
+      constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+      }
+      connectedCallback() {
+        const title = this.getAttribute('data-title') || 'project title';
+        const description = this.getAttribute('data-description') || '...';
+        const imageUrl = this.getAttribute('data-image') || '';
+        const imageAlt = this.getAttribute('data-image-alt') || 'Project image';
+        const link = this.getAttribute('data-link') || '#';
+        this.render(title, description, imageUrl, imageAlt, link);
+      }
+      render(title, description, imageUrl, imageAlt, link) {
+        this.shadowRoot.innerHTML = `
+          <style>
+            .card {
+              background: var(--card-background);
+              border: 1px solid var(--card-border);
+              border-radius: var(--card-radius);
+              padding: var(--card-padding);
+              box-shadow: var(--card-shadow);
+              color: var(--card-text-color);
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              height: 100%;
+            }
+            .card h2 {
+              margin: 0 0 0.5rem;
+              color: black;
+            }
+            .card p {
+              flex: 1;
+              margin: 0 0 0.5rem;
+            }
+            .card a {
+              color: var(--card-link-color);
+              text-decoration: none;
+              font-weight: bold;
+              margin-top: 0.5rem;
+            }
+            .card picture, .card img {
+                width: 100%;
+                height: 80%;
+                aspect-ratio: 1/1;
+                object-fit: cover;
+              border-radius: var(--card-radius);
+            }
+            .card-body a:hover {
+              background-color: var(--card-link-hover-color);
+            }
+          </style>
+          <div class="card">
+            <picture>
+              <source srcset="${imageUrl}" type="image/webp">
+              <img src="${imageUrl}" alt="${imageAlt}">
+            </picture>
+            <h2>${title}</h2>
+            <p>${description}</p>
+            <a href="${link}" target="_blank" rel="noopener">Learn More</a>
+          </div>
+        `;
+      }
+    }
+    customElements.define('project-card', ProjectCard);
+
+    function loadLocalProjects() {
+      const localData = localStorage.getItem('projects');
+      if (localData) {
+        try {
+          return JSON.parse(localData);
+        } catch (e) {
+          console.error('Error parsing local projects:', e);
+        }
+      }
+      return [
+        
+      ];
+    }
+
+    // fetch remote projectnfrom a JSON file
+    async function fetchRemoteProjects() {
+      try {
+        const response = await fetch('ulises-projects.json');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        return await response.json();
+      } catch (error) {
+        console.error('Error fetching remote projects:', error);
+        return [];
+      }
+    }
+
+    async function displayProjectCards() {
+      const container = document.getElementById('cards-container');
+      const localProjects = loadLocalProjects();
+      const remoteProjects = await fetchRemoteProjects();
+      const allProjects = [...localProjects, ...remoteProjects];
+
+      container.innerHTML = '';
+
+      allProjects.forEach(project => {
+        const card = document.createElement('project-card');
+        card.setAttribute('data-title', project.title);
+        card.setAttribute('data-description', project.description);
+        card.setAttribute('data-image', project.image);
+        card.setAttribute('data-image-alt', project.imageAlt);
+        card.setAttribute('data-link', project.link);
+        container.appendChild(card);
+      });
+    }
+
+    document.addEventListener('DOMContentLoaded', displayProjectCards);
   </script>
 </body>
 </html>

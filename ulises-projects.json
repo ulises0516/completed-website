@@ -8,14 +8,14 @@
   },
   {
     "title": "Opportune",
-    "description": "An open-source project social network for students and alumni to track internships, connect, and share career resources, collaborating with a team of six",
-    "image": "images/Opportune.png",
+    "description": "Open-source social network for students and alumni to track internships, connect, and share career resources.",
+    "image": "images/Opportune.jpg",
     "imageAlt": "Image of Opportune",
     "link": "https://github.com/CSES-Open-Source/Opportune"
   },
   {
     "title": "CAIDA",
-    "description": "Collaborated with a cross-functional team to develop a software tool (Python) for research paper identification using CAIDA datasets, reducing metadata collection time by 30% through web scraping",
+    "description": "Collaborated with a cross-functional team to develop a Python tool for research paper identification using CAIDA datasets.",
     "image": "images/caida-img.jpg",
     "imageAlt": "Image of CAIDA website",
     "link": "https://www.caida.org/"

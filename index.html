@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="css/website-style.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <style>
-    /* Hide theme icon if JavaScript is disabled */
     .no-js #themeIcon {
       display: none;
     }
@@ -19,7 +18,6 @@
     <p><strong>JavaScript is disabled.</strong> Some features may not work properly. Please enable JavaScript for the best experience.</p>
   </noscript>
   
-  <!-- Header Section -->
   <header>
     <div class="header-container">
       <h1>Ulises</h1>
@@ -351,40 +349,56 @@
       render(title, description, imageUrl, imageAlt, link) {
         this.shadowRoot.innerHTML = `
           <style>
+            :host {
+              display: block;
+              font-family: sans-serif;
+            }
             .card {
-              background: var(--card-background);
+              background-color: var(--card-background);
               border: 1px solid var(--card-border);
               border-radius: var(--card-radius);
-              padding: var(--card-padding);
               box-shadow: var(--card-shadow);
+              padding: var(--card-padding);
               color: var(--card-text-color);
+              height: 100%;
               display: flex;
               flex-direction: column;
-              justify-content: space-between;
-              height: 100%;
+              transition: transform 0.2s ease, box-shadow 0.2s ease;
             }
+            .card:hover {
+              transform: translateY(-3px);
+              box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+            }
+            .card picture,
+            .card img {
+              width: 100%;
+              object-fit: cover;
+              border-radius: var(--card-radius) var(--card-radius) 0 0;
+            }
+
             .card h2 {
-              margin: 0 0 0.5rem;
-              color: black;
+              margin: 1rem 0 0.5rem;
+              color: var(--card-title-color);
+              font-size: 1.2rem;
             }
+
             .card p {
               flex: 1;
-              margin: 0 0 0.5rem;
+              margin: 0 0 1rem;
+              line-height: 1.4;
             }
+
             .card a {
-              color: var(--card-link-color);
+              display: inline-block;
+              color: #fff;
+              background-color: var(--card-link-color);
+              padding: 0.5rem 1rem;
+              border-radius: 20px;
               text-decoration: none;
-              font-weight: bold;
-              margin-top: 0.5rem;
+              font-weight: 600;
+              transition: background-color 0.2s ease;
             }
-            .card picture, .card img {
-                width: 100%;
-                height: 80%;
-                aspect-ratio: 1/1;
-                object-fit: cover;
-              border-radius: var(--card-radius);
-            }
-            .card-body a:hover {
+            .card a:hover {
               background-color: var(--card-link-hover-color);
             }
           </style>
@@ -395,7 +409,7 @@
             </picture>
             <h2>${title}</h2>
             <p>${description}</p>
-            <a href="${link}" target="_blank" rel="noopener">Learn More</a>
+            <a href="${link}" target="_blank" rel="noopener">Read More</a>
           </div>
         `;
       }

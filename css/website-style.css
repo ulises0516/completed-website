@@ -10,26 +10,31 @@
   --link-color:#0077cc;
   --primary-font: 'Roboto', Arial, sans-serif;
   --card-background: #ffffff;
-  --card-border: #e0e0e0;
-  --card-radius: 10px;
-  --card-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  --card-border: #eee;
+  --card-radius: 16px;
+  --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
   --card-title-color: #333;
-  --card-text-color: #666;
-  --card-link-color: #0077cc;
-  --card-link-hover-color: #005fa3; 
-  --card-header-height: 100px;
-  --card-img-size: 70px;
+  --card-text-color: #555;
+  --card-link-color: #0069d9;
+  --card-link-hover-color: #0051a8;
+  --card-padding: 1rem;
+  --card-gap: 1rem;
+  --card-img-height: 180px;
 }
 
 #cards-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1rem;
   padding: 1rem;
+  align-items: stretch; 
+
 }
 project-card {
   display: block;
 }
+
+
 
 [data-theme="dark"] {
   --body-background: #2c2b2b;            

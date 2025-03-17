@@ -15,7 +15,7 @@
   },
   {
     "title": "CAIDA",
-    "description": "Collaborated with a cross-functional team to develop a Python tool for research paper identification using CAIDA datasets.",
+    "description": "Collaborated with a cross-functional team to develop a Python tool for research paper identification using CAIDA datasets.Reduced metadata collection time by 30% through web scraping.",
     "image": "images/caida-img.jpg",
     "imageAlt": "Image of CAIDA website",
     "link": "https://www.caida.org/"

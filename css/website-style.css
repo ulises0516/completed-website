@@ -22,6 +22,20 @@
   --card-img-height: 180px;
 }
 
+#buttons button {
+  margin: 0 0.5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background-color: var(--card-link-color);
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+#buttons {
+  display: flex;
+  justify-content: center;
+}
 #cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

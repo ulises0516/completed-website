@@ -80,6 +80,10 @@
     <!-- project section -->
     <section id="portfolio">
       <h2>Portfolio/Projects</h2>
+      <div id="buttons">
+        <button id="load-local-btn">Load Local</button>
+        <button id="load-remote-btn">Load Remote</button>
+      </div>
 
       <div id="cards-container"></div>
     </section>
@@ -416,6 +420,11 @@
     }
     customElements.define('project-card', ProjectCard);
 
+    function storeProjectsToLocal(projects) {
+      localStorage.setItem('projects', JSON.stringify(projects));
+    }
+
+    // fetch from local storage
     function loadLocalProjects() {
       const localData = localStorage.getItem('projects');
       if (localData) {
@@ -430,10 +439,10 @@
       ];
     }
 
-    // fetch remote projectnfrom a JSON file
+    // fetch from json server
     async function fetchRemoteProjects() {
       try {
-        const response = await fetch('ulises-projects.json');
+        const response = await fetch("https://my-json-server.typicode.com/ulises0516/completed-website/projects");
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -444,15 +453,10 @@
       }
     }
 
-    async function displayProjectCards() {
+    function displayProjects(projects) {
       const container = document.getElementById('cards-container');
-      const localProjects = loadLocalProjects();
-      const remoteProjects = await fetchRemoteProjects();
-      const allProjects = [...localProjects, ...remoteProjects];
-
       container.innerHTML = '';
-
-      allProjects.forEach(project => {
+      projects.forEach(project => {
         const card = document.createElement('project-card');
         card.setAttribute('data-title', project.title);
         card.setAttribute('data-description', project.description);
@@ -462,8 +466,27 @@
         container.appendChild(card);
       });
     }
+    document.getElementById('load-local-btn').addEventListener('click', () => {
+      const localProjects = loadLocalProjects();
+      if (localProjects.length === 0) {
+        alert("load remote data first (no local data)");
+      } else {
+        displayProjects(localProjects);
+      }
+    });
 
-    document.addEventListener('DOMContentLoaded', displayProjectCards);
+    document.getElementById('load-remote-btn').addEventListener('click', async () => {
+      const remoteProjects = await fetchRemoteProjects();
+      console.log(remoteProjects)
+      if (remoteProjects.length > 0) {
+        storeProjectsToLocal(remoteProjects);
+        displayProjects(remoteProjects);
+      } else {
+        alert("Remote data could not be loaded.");
+      }
+    });
+
+   // document.addEventListener('DOMContentLoaded', displayProjectCards);
   </script>
 </body>
 </html>

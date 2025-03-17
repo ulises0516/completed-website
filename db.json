@@ -1,23 +1,25 @@
-[
-  {
-    "title": "Webclicker++",
-    "description": "Developing a web-based iClicker replacement with a Q&A interface and professor tools.",
-    "image": "images/webclicker.jpg",
-    "imageAlt": "Image of weblicker++ project",
-    "link": "https://github.com/CSES-Dev/webclicker-plusplus"
-  },
-  {
-    "title": "Opportune",
-    "description": "Open-source social network for students and alumni to track internships, connect, and share career resources.",
-    "image": "images/Opportune.jpg",
-    "imageAlt": "Image of Opportune",
-    "link": "https://github.com/CSES-Open-Source/Opportune"
-  },
-  {
-    "title": "CAIDA",
-    "description": "Collaborated with a cross-functional team to develop a Python tool for research paper identification using CAIDA datasets.Reduced metadata collection time by 30% through web scraping.",
-    "image": "images/caida-img.jpg",
-    "imageAlt": "Image of CAIDA website",
-    "link": "https://www.caida.org/"
-  }
-]
+{
+  "projects": [
+    {
+      "title": "Webclicker++",
+      "description": "Developing a web-based iClicker replacement with a Q&A interface and professor tools.",
+      "image": "images/webclicker.jpg",
+      "imageAlt": "Image of weblicker++ project",
+      "link": "https://github.com/CSES-Dev/webclicker-plusplus"
+    },
+    {
+      "title": "Opportune",
+      "description": "Open-source social network for students and alumni to track internships, connect, and share career resources.",
+      "image": "images/Opportune.jpg",
+      "imageAlt": "Image of Opportune",
+      "link": "https://github.com/CSES-Open-Source/Opportune"
+    },
+    {
+      "title": "CAIDA",
+      "description": "Collaborated with a cross-functional team to develop a Python tool for research paper identification using CAIDA datasets.Reduced metadata collection time by 30% through web scraping.",
+      "image": "images/caida-img.jpg",
+      "imageAlt": "Image of CAIDA website",
+      "link": "https://www.caida.org/"
+    }
+  ]
+}

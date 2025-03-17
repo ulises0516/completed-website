@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html class = "no-js" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Contact Form - JS Validation & Masking</title>
+  <link rel="stylesheet" href="css/form-style.css">
+  <link rel="stylesheet" href="css/website-style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <style>
+    .no-js #themeIcon {
+      display: none;
+    }
+  </style>
+</head>
+<body data-theme="light">
+  <noscript>
+    <p><strong>JavaScript is disabled.</strong> Some features may not work properly. Please enable JavaScript for the best experience.</p>
+  </noscript>
+  
+  <header>
+    <div class="header-container">
+        <h1>Ulises</h1>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#about-me">About Me</a></li>
+          <li><a href="#resume">Resume</a></li>
+          <li><a href="#portfolio">Portfolio</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <button id="themeToggle" aria-label="Toggle Dark Mode">
+        <img id="themeIcon" src="images/moon-icon.svg" alt="Theme Toggle">
+      </button>
+    </div>
+  </header>
+
+  <section id="hero">
+    <div class="hero-content">
+      <h2>Journey</h2>
+    </div>
+  </section>
+
+  <main>
+    <section id="about-me">
+      <h2>About Me</h2>
+      <div class="two-column">
+        <!-- left Column -->
+        <article>
+          <h3>BIO</h3>
+          <p>My current goals are to become a better programmer and reach 1000 LeetCode problems solved by the end of this year.</p>
+          <p>Outside of programming, I enjoy cooking, running, and playing chess. I hope to increase my chess Elo and run a marathon this year!</p>
+          <p><strong>Personal</strong></p>
+          <p>My favorite foods are spaghetti, avocados, and steak. I also love In-N-Out and milkshakes.</p>
+          <p>Basketball is my favorite sport to watch—and I play it during my free time.</p>
+        </article>
+
+        <!-- right column - image -->
+        <aside>
+          <figure>
+            <picture>
+              <source srcset="images/profilepic.webp" type="image/webp">
+              <source srcset="images/profilepic.jpg" type="image/jpeg">
+              <img src="images/profilepic.jpg" alt="protrait of ulises (me)" class="responsive-img">
+            </picture>
+            <figcaption> <em>picture of me!</em></figcaption>
+          </figure>
+        </aside>
+      </div>
+    </section>
+
+
+    <section id="resume">
+      <h2>Resume</h2>
+      <div class="responsive-pdf">
+        <iframe 
+          src="pdf/resume.pdf#zoom=page-width"
+          title="Ulises's Resume" 
+          allowfullscreen>
+        </iframe>
+      </div>
+    </section>
+
+    <section id="portfolio">
+      <h2>Portfolio/Projects</h2>
+      <div class="two-column">
+        <!-- left column  -->
+        <article>
+          <h3>WebClicker++<cite> 
+            <a href="https://github.com/CSES-Dev/webclicker-plusplus" target="_blank" rel="noopener">
+              <picture>
+                <source srcset="images/github-icon.webp" type="image/webp">
+                <source srcset="images/github-icon.jpg" type="image/jpeg">
+                <img src="images/github-icon.jpg" alt="View Project on GitHub" >
+              </picture>
+            </a>
+          </cite> 
+        </h3>
+          <p>Developing a web-based iClicker replacement with a Q&A interface and professor tools. </p>
+          <p>Implemented authentication using Next.js OAuth with Prisma for user management and protected pages using middleware to ensure secure access control</p>
+          <blockquote>
+            <p>Innovating attendance</p>
+          </blockquote>
+        </article>
+    
+        <!-- right column -img -->
+        <aside>
+          <figure>
+            <picture>
+              <source srcset="images/webclicker.webp" type="image/webp">
+              <source srcset="images/webclicker.jpg" type="image/jpeg">
+              <img src="images/webclicker.jpg" alt="Image of Project" class="responsive-img">
+            </picture>
+          </figure>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <section id="contact">
+      <h2>Connect</h2>
+      <address class="contact-icons">
+        <a href="https://www.linkedin.com/in/ulises-salinas/" target="_blank" rel="noopener">
+          <picture>
+            <source srcset="images/linkedin-icon.webp" type="image/webp">
+            <source srcset="images/linkedin-icon.svg" type="image/svg">
+            <img src="images/linkedin-icon.svg" alt="LinkedIn">
+          </picture>
+        </a>
+        <a href="https://github.com/ulises0516" target="_blank" rel="noopener">
+          <picture>
+            <source srcset="images/github-icon.webp" type="image/webp">
+            <source srcset="images/github-icon.svg" type="image/svg">
+            <img src="images/github-icon.svg" alt="GitHub">
+          </picture>
+        </a>
+        <a href="mailto:usalinas595@gmail.com">
+          <picture>
+            <source srcset="images/email-icon.webp" type="image/webp">
+            <source srcset="images/email-icon.svg" type="image/svg">
+            <img src="images/email-icon.svg" alt="Email">
+          </picture>
+        </a>
+        <!-- <button id="openModalBtn" class="contact-button">Contact Me</button> -->
+
+      </address>
+
+
+      <div id="contactModalContainer">
+        <form id="contactForm" action="https://httpbin.org/post" method="post" novalidate>
+          <input type="hidden" id="form-errors" name="form-errors" value="[]" />
+      
+          <h2>Contact Me</h2>
+      
+          <label for="name" class="required">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            pattern="^[A-Za-z\s'\-]+$"
+            placeholder="Your Name"
+            title="Name can only contain letters, spaces, apostrophes, or hyphens."
+          >
+      
+          <label for="email" class="required">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            required
+            placeholder="john@domain.com"
+            title="Please enter a valid email address."
+          >
+      
+          <label for="comments" class="required">Comments</label>
+          <div class="textarea-container">
+            <textarea
+              id="comments"
+              name="comments"
+              required
+              minlength="20"
+              maxlength="500"
+              placeholder="message..."
+            ></textarea>
+            <div id="charCount" class="char-counter">Characters remaining: 500</div>
+          </div>
+      
+          <div id="errorOutput" class="error-output" aria-live="polite"></div>
+      
+          <input type="hidden" name="possible_bot" value="true">
+      
+          <div class="form-buttons">
+            <button type="submit" id="submitBtn" class="submit-modal-btn">Submit</button>
+          </div>
+        </form>
+      </div>      
+
+    </section>
+    <p>&copy; 2024 Ulises Blog</p>
+  </footer>  
+
+  <script>
+    document.documentElement.classList.remove('no-js');
+    document.documentElement.classList.add('js');
+
+    // theme switcher
+    document.addEventListener('DOMContentLoaded', () => {
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+
+      const storedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', storedTheme);
+
+      themeIcon.src = storedTheme === 'dark' ? "images/sun-icon.webp" : "images/moon-icon.svg";
+      themeToggle.setAttribute("aria-label", storedTheme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode");
+
+      themeToggle.addEventListener('click', () => {
+        const newTheme = document.documentElement.getAttribute("data-theme") === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", newTheme);
+        localStorage.setItem("theme", newTheme);
+
+        themeIcon.src = newTheme === "dark" ? "images/sun-icon.webp" : "images/moon-icon.svg";
+        themeToggle.setAttribute("aria-label", newTheme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode");
+      });
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      let form_errors = [];
+      const form             = document.getElementById('contactForm');
+      const nameInput        = document.getElementById('name');
+      const emailInput       = document.getElementById('email');
+      const commentsTxtarea  = document.getElementById('comments');
+      const charCount        = document.getElementById('charCount');
+      const errorOutput      = document.getElementById('errorOutput');
+      const formErrField     = document.getElementById('form-errors');
+    
+      const allowedCharRegex = /[A-Za-z\s'\-]/; 
+      const maxChars = 500;
+    
+      console.log({ form, nameInput, emailInput, commentsTxtarea, charCount, errorOutput, formErrField });
+    
+      nameInput.addEventListener('input', () => {
+        console.log("Name input event triggered");
+        const originalValue = nameInput.value;
+        const sanitizedValue = originalValue
+          .split('')
+          .filter(ch => allowedCharRegex.test(ch))
+          .join('');
+    
+        if (originalValue !== sanitizedValue) {
+          nameInput.classList.add('flash');
+          nameInput.setCustomValidity("Name can only contain letters, spaces, apostrophes, or hyphens.");
+          nameInput.value = sanitizedValue;
+          setTimeout(() => {
+            nameInput.classList.remove('flash');
+          }, 500);
+        } else {
+          nameInput.setCustomValidity("");
+        }
+        showFieldErrors();
+      });
+    
+      commentsTxtarea.addEventListener('input', () => {
+        const currentLength = commentsTxtarea.value.length;
+        const remaining = maxChars - currentLength;
+        charCount.textContent = `characters remaining: ${remaining}`;
+    
+        if (remaining < 100) {
+          charCount.classList.add('warning');
+        } else {
+          charCount.classList.remove('warning');
+        }
+    
+        if (remaining < 0) {
+          commentsTxtarea.setCustomValidity("You have exceeded the maximum allowed characters.");
+        } else {
+          commentsTxtarea.setCustomValidity("");
+        }
+        showFieldErrors();
+      });
+    
+      emailInput.addEventListener('blur', showFieldErrors);
+      nameInput.addEventListener('blur', showFieldErrors);
+      commentsTxtarea.addEventListener('blur', showFieldErrors);
+    
+      function showFieldErrors() {
+        let messages = [];
+    
+        if (!nameInput.value.trim()) {
+          messages.push("Name cannot be empty.");
+        } else if (!nameInput.validity.valid) {
+          messages.push(`Name ("${nameInput.value}"): ${nameInput.validationMessage}`);
+        }
+    
+        if (!emailInput.value.trim()) {
+          messages.push("Email cannot be empty.");
+        } else if (!emailInput.validity.valid) {
+          messages.push("Invalid email format.");
+        }
+    
+        if (!commentsTxtarea.value.trim()) {
+          messages.push("Comments cannot be empty.");
+        } else if (commentsTxtarea.value.length < 20) {
+          messages.push("Comments must be at least 20 characters.");
+        } else if (!commentsTxtarea.validity.valid) {
+          messages.push(commentsTxtarea.validationMessage);
+        }
+    
+        if (messages.length > 0) {
+          errorOutput.innerHTML = messages.join("<br>");
+          errorOutput.style.display = "block";
+          errorOutput.style.opacity = 1;
+          setTimeout(() => {
+            errorOutput.style.transition = "opacity 1s ease-out";
+            errorOutput.style.opacity = 0;
+          }, 3000);
+        
+          errorOutput.addEventListener('transitionend', () => {
+            if (errorOutput.style.opacity === "0") {
+              errorOutput.style.display = "none";
+            }
+          });
+
+        } else {
+          errorOutput.innerHTML = "";
+          errorOutput.style.display = "none";
+        }
+      }
+    
+      form.addEventListener('submit', (e) => {
+        form_errors = [];
+        let messages = [];
+        if (nameInput.value.trim()) {
+          if (!nameInput.validity.valid) {
+            messages.push(`Name ("${nameInput.value}"): ${nameInput.validationMessage}`);
+            form_errors.push({
+              field: 'name',
+              error: nameInput.validationMessage,
+              value: nameInput.value
+            });
+          }
+        } else {
+          messages.push("Name cannot be empty.");
+          form_errors.push({
+            field: 'name',
+            error: "Name cannot be empty.",
+            value: nameInput.value
+          });
+        }
+    
+        if (!emailInput.value.trim()) {
+          messages.push("Email cannot be empty.");
+          form_errors.push({
+            field: 'email',
+            error: "Email cannot be empty.",
+            value: emailInput.value
+          });
+        } else if (!emailInput.validity.valid) {
+          messages.push("Invalid email format.");
+          form_errors.push({
+            field: 'email',
+            error: "Invalid email format.",
+            value: emailInput.value
+          });
+        }
+    
+        if (!commentsTxtarea.value.trim()) {
+          messages.push("Comments cannot be empty.");
+          form_errors.push({
+            field: 'comments',
+            error: "comments cannot be empty.",
+            value: commentsTxtarea.value
+          });
+        } else if (commentsTxtarea.value.length < 20) {
+          messages.push("Comments must be at least 20 characters.");
+          form_errors.push({
+            field: 'comments',
+            error: "comments must be at least 20 characters.",
+            value: commentsTxtarea.value
+          });
+        } else if (!commentsTxtarea.validity.valid) {
+          messages.push(commentsTxtarea.validationMessage);
+          form_errors.push({
+            field: 'comments',
+            error: commentsTxtarea.validationMessage,
+            value: commentsTxtarea.value
+          });
+        }
+    
+        if (messages.length > 0) {
+          e.preventDefault();
+          errorOutput.innerHTML = messages.join("<br>");
+          errorOutput.style.display = "block";
+        } else {
+          errorOutput.innerHTML = "";
+          errorOutput.style.display = "none";
+        }
+      
+        formErrField.value = JSON.stringify(form_errors);
+      });
+    });
+  </script>
+</body>
+</html>
